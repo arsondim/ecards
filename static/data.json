@@ -1,0 +1,92 @@
+﻿[
+    {
+        "id": "1",
+        "name": "Arkadiusz",
+        "surname": "Adamski",
+        "email": "arkadiusz.adamski@respect.energy",
+        "workplace": "Specjalista ds. Obsługi Klienta",
+        "phone": "555-123-4567",
+        "company": "Respect Energy"
+    },
+    {
+        "id": "2",
+        "name": "Marek",
+        "surname": "Woźniak",
+        "email": "marek.woźniak@respect.energy",
+        "workplace": "Analityk Finansowy",
+        "phone": "555-987-6543",
+        "company": "Solarwind"
+    },
+    {
+        "id": "3",
+        "name": "Andrzej ",
+        "surname": "Zakrzewska",
+        "email": "andrzej.zakrzewska@respect.energy",
+        "workplace": "Programista Aplikacji Mobilnych",
+        "phone": "555-555-1212",
+        "company": "Fuels"
+    },
+    {
+        "id": "4",
+        "name": "Karol",
+        "surname": "Michalak",
+        "email": "karol.michalak@respect.energy",
+        "workplace": "Kierownik Projektu Marketingowego",
+        "phone": "555-789-0123",
+        "company": "rePoweric"
+    },
+    {
+        "id": "5",
+        "name": "Michał",
+        "surname": "Andrzejewski",
+        "email": "michał.andrzejewski@respect.energy",
+        "workplace": "Specjalista ds. Zarządzania Zasobami Ludzkimi",
+        "phone": "555-234-5678",
+        "company": "Respect Energy"
+    },
+    {
+        "id": "6",
+        "name": "Sebastian",
+        "surname": "Sobczak",
+        "email": "sebastian.sobczak@respect.energy",
+        "workplace": "Inżynier ds. Rozwoju Oprogramowania",
+        "phone": "555-876-5432",
+        "company": "Respect Energy"
+    },
+    {
+        "id": "7",
+        "name": "Filip",
+        "surname": "Kucharski",
+        "email": "filip.kucharski@respect.energy",
+        "workplace": "Doradca Prawny",
+        "phone": "555-333-4444",
+        "company": "Respect Energy"
+    },
+    {
+        "id": "8",
+        "name": "Karolina",
+        "surname": "Wojciechowska",
+        "email": "karolina.wojciechowska@respect.energy",
+        "workplace": "Konsultant ds. Bezpieczeństwa IT",
+        "phone": "555-678-9012",
+        "company": "Respect Energy"
+    },
+    {
+        "id": "9",
+        "name": "Agata",
+        "surname": "Karolewska",
+        "email": "agata.karolewska@respect.energy",
+        "workplace": "Asystent Zarządu",
+        "phone": "555-890-1234",
+        "company": "Respect Energy"
+    },
+    {
+        "id": "10",
+        "name": "Małgorzata",
+        "surname": "Majewska-Kowalka",
+        "email": "małgorzata.majewska-kowalka@respect.energy",
+        "workplace": "Przedstawiciel Handlowy",
+        "phone": "555-456-7890",
+        "company": "Respect Energy"
+    }
+]
