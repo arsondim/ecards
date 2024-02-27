@@ -80,7 +80,7 @@ if (route.params.slug) {
 }
 
 
-const { data, pending, error, refresh } = await useFetch('http://recards.test/wp-json/wp/v2/posts/?acf_format=standard',{
+const { data, pending, error, refresh } = await useFetch('https://ecards.renergy.webd.pro/wp-json/wp/v2/posts/?acf_format=standard',{
   query: {slug: slug.value}
 })
 
