@@ -32,7 +32,7 @@
       <div>
 
    
-        <a @click="generateVCard"  :data-value="data[0].title.rendered"  :data-email="data[0].acf.email" :data-phone="data[0].acf.telefon" v-if="!vCardData" class="btn bg-reMain opacity-60 text-white p-2 m-auto block w-auto rounded-lg text-center mt-3" >Wygeneruj vCard</a>
+        <a @click="generateVCard"  :data-value="data[0].title.rendered"  :data-email="data[0].acf.email" :data-title="data[0].acf.stanowisko" :data-phone="data[0].acf.telefon" v-if="!vCardData" class="btn bg-reMain opacity-60 text-white p-2 m-auto block w-auto rounded-lg text-center mt-3" >Wygeneruj vCard</a>
 
         <a v-if="vCardData" :href="vCardData" download="contact.vcf"  class="btn bg-reMain text-white p-2 m-auto block w-auto rounded-lg text-center mt-3" >Pobierz vCard</a>
 
@@ -123,13 +123,17 @@ export default {
         const dataValue = event.target.dataset.value;
         const dataEmail = event.target.dataset.email;
         const dataPhone = event.target.dataset.phone;
+        const dataTitle = event.target.dataset.title;
 
-        const vCardContent = `BEGIN:VCARD
-  VERSION:3.0
-  N:${dataValue}
-  FN:${dataValue}
-  EMAIL:${dataEmail}
-  TEL: ${dataPhone}
+        const vCardContent = `
+        BEGIN:VCARD
+VERSION:3.0
+N:${dataValue}
+FN:${dataValue}
+EMAIL;type=WORK,INTERNET:${dataEmail}
+TEL;type=WORK,VOICE:${dataPhone}
+TITLE:${dataTitle}
+URL;type=WORK;type=pref:https://respect.energy
   END:VCARD`;
         const blob = new Blob([vCardContent], { type: 'text/vcard' });
         this.vCardData = window.URL.createObjectURL(blob);
