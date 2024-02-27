@@ -1,12 +1,12 @@
 <template >
   <div class="min-h-screen items-center flex">
 
-    <div class="container  pt-4  mx-7">
+    <div class="container  pt-4  mx-4">
 
       <div class="card bg-white border-b-4 border-reMain p-8 shadow-lg rounded-lg">
 
         <div class="header flex justify-between ">
-          <img class="inline-block h-auto w-20  rounded-full ring-2 ring-white" :src="`${data[0].acf.zdjecie}`" alt="" />
+          <img class="inline-block h-auto w-10  rounded-full ring-2 ring-white" :src="`${data[0].acf.zdjecie}`" alt="" />
 
           <img src="~/assets/logo.svg" />
 
