@@ -1,14 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],
+  modules: ['nuxt-feather-icons', "@nuxtjs/tailwindcss", "@nuxtjs/color-mode"],
 
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
+  colorMode: {
+    classSuffix: '',
+    preference: 'light', 
   },
 
-  modules: ['nuxt-feather-icons'],
+  tailwindcss: {
+    cssPath: "~/assets/css/main.css",
+    configPath: 'tailwind.config.js',
+   },
 })
