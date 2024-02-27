@@ -125,16 +125,18 @@ export default {
         const dataPhone = event.target.dataset.phone;
         const dataTitle = event.target.dataset.title;
 
-        const vCardContent = `
-        BEGIN:VCARD
+        const vCardContent = `BEGIN:VCARD
 VERSION:3.0
-N:${dataValue}
 FN:${dataValue}
+N:${dataValue};;;
 EMAIL;type=WORK,INTERNET:${dataEmail}
-TEL;type=WORK,VOICE:${dataPhone}
+TEL;TYPE=WORK,VOICE:${dataPhone}
+LABEL;TYPE=WORK:Work Address
+ADR;TYPE=WORK:;;Rydygiera 8;Warszawa; ;1077XX; 
 TITLE:${dataTitle}
-URL;type=WORK;type=pref:https://respect.energy
-  END:VCARD`;
+ORG:Respect Energy
+REV:2024-02-27T11:50:37.929Z
+END:VCARD`;
         const blob = new Blob([vCardContent], { type: 'text/vcard' });
         this.vCardData = window.URL.createObjectURL(blob);
       },
