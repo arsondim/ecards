@@ -1,7 +1,7 @@
 <template >
   <div class="min-h-screen items-center flex">
 
-    <div class="container  pt-4  mx-3">
+    <div class="container  p-2  mx-auto">
 
       <div class="card bg-white border-b-4 border-reMain p-8 shadow-lg rounded-lg">
 
