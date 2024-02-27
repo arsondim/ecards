@@ -31,7 +31,11 @@
 
       <div>
 
-        <a :href="vCardDownloadLink" class="btn bg-reMain text-white p-2 m-auto block w-auto rounded-lg text-center mt-3" download="contact.vcf">Pobierz vCard</a>
+   
+        <a @click="generateVCard"  :data-value="data[0].title.rendered"  :data-email="data[0].acf.email" :data-phone="data[0].acf.telefon" v-if="!vCardData" class="btn bg-reMain opacity-60 text-white p-2 m-auto block w-auto rounded-lg text-center mt-3" >Wygeneruj vCard</a>
+
+        <a v-if="vCardData" :href="vCardData" download="contact.vcf"  class="btn bg-reMain text-white p-2 m-auto block w-auto rounded-lg text-center mt-3" >Pobierz vCard</a>
+
 
       </div>
 
@@ -99,7 +103,11 @@ body,html{
 export default {
   data() {
     return {
-      currentUrl: ''
+      currentUrl: '',
+      name: '',
+        email: '',
+        vCardData: null
+
     };
   },
   mounted() {
@@ -107,6 +115,27 @@ export default {
       this.currentUrl = window.location.href;
     }
   },
+
+
+  methods: {
+      generateVCard(event) {
+
+        const dataValue = event.target.dataset.value;
+        const dataEmail = event.target.dataset.email;
+        const dataPhone = event.target.dataset.phone;
+
+        const vCardContent = `BEGIN:VCARD
+  VERSION:3.0
+  N:${dataValue}
+  FN:${dataValue}
+  EMAIL:${dataEmail}
+  TEL: ${dataPhone}
+  END:VCARD`;
+        const blob = new Blob([vCardContent], { type: 'text/vcard' });
+        this.vCardData = window.URL.createObjectURL(blob);
+      },
+    },
+
 
 }
 
