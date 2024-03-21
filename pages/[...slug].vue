@@ -1,40 +1,33 @@
-<template >
+<template>
+
+
   <div class="min-h-screen items-center flex">
 
-    <div class="container  p-2  mx-auto">
-
-     
-
-      <div class="card bg-white  border-b-4 border-reMain p-8 shadow-lg rounded-lg">
-
-        <div class="header flex justify-between ">
-          <img class="inline-block w-12 h-12  rounded-full ring-2 ring-white" :src="`${data[0].acf.zdjecie}`" alt="" />
-
-          <img src="~/assets/logo.svg" />
-
-        </div>
+    <div class="container  mx-auto">
 
 
-        <h2 class="text-2xl pt-2 font-bold">{{ data[0].title.rendered }}</h2>
-        <h4 class="text-reMain ">{{ data[0].acf.stanowisko }}</h4>
-        <div class="data text-sm pt-3">
-          <div class="mail flex items-center">
-            <MailIcon class=" opacity-50 " size="1x"></MailIcon> <span class="ps-2"> {{ data[0].acf.email }} </span>
+      <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :space-between="50"
+        :slides-per-view="1" :loop="false" :autoplay="{ delay: 8000, disableOnInteraction: true, }"
+        :pagination="{ el: '.custom-pagination', enabled: true, clickable: true }">
+        <SwiperSlide>
+          <CardFront :data="data" />
+        </SwiperSlide>
+
+        <SwiperSlide>
+
+          <div class="card bg-white  border-b-4 border-reMain p-8 shadow-lg rounded-lg">
+            ok
           </div>
-          <div class="phone flex items-center">
-            <PhoneIcon class=" opacity-50 " size="1x"></PhoneIcon><span class="ps-2">{{ data[0].acf.telefon }} </span>
-          </div>
-          <div class="website flex items-center">
-            <GlobeIcon class=" opacity-50 " size="1x"></GlobeIcon> <a href="http://respect.energy"><span class="ps-2">
-                respect.energy </span> </a>
-          </div>
+        </SwiperSlide>
 
-        </div>
-
-      </div>
+      </Swiper>
 
 
-      <div>
+      <div class="text-center custom-pagination"></div>
+
+
+
+      <div class="mx-3">
 
 
         <a @click="generateVCard" :data-value="data[0].title.rendered" :data-email="data[0].acf.email"
@@ -42,8 +35,7 @@
           class="btn bg-reMain opacity-60 text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">Wygeneruj
           vCard</a>
 
-        <a v-if="vCardData" :href="vCardData" download="contact.vcf"
-          class="btn bg-reMain text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">Pobierz vCard</a>
+        <a v-if="vCardData" :href="vCardData" download="contact.vcf" class="btn bg-reMain text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">  Pobierz vCard </a>
 
 
       </div>
@@ -52,14 +44,18 @@
 
         <h4 class="text-gray-600 dark:text-gray-50">
 
-          Zeskanuj kod QR
-
         </h4>
 
-        <div class="text-center pt-4">
-          <img class="m-auto border border-reMain"
-            :src="`https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=${currentUrl}`" alt="">
-          <p class="text-xs text-gray-600 dark:text-gray-50 opacity-50 pt-3"> {{ currentUrl }}</p>
+        <div class="text-center pt-2 px-6">
+          <img class="m-auto border rounded-md border-reMain"
+            :src="`https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=${currentUrl}`" alt="">
+
+          <p class="hidden text-xs text-gray-600 dark:text-gray-50 opacity-50 pt-3"> {{ currentUrl }}</p>
+
+
+          <CopyLink :data="currentUrl" />
+
+
 
         </div>
 
@@ -71,12 +67,19 @@
 
 
   </div>
+
+  <BottomNav :data="data" />
+
 </template>
-  
+
+
+<script>
+
+
+</script>
+
 <script setup>
-
-
-
+import CryptoJS from 'crypto-js';
 const route = useRoute()
 const slug = ref('')
 
@@ -92,14 +95,15 @@ if (route.params.slug) {
   slug.value = 'home'
 }
 
-
-const { data, pending, error, refresh } = await useFetch('https://ecards.renergy.webd.pro/wp-json/wp/v2/posts/?acf_format=standard', {
-  query: { slug: slug.value }
+const { data: data, pending, error, refresh } = await useFetch('https://ecards.renergy.webd.pro/wp-json/wp/v2/posts/?acf_format=standard', {
+  query: {
+    hash: slug.value,
+  }
 })
-
 </script>
 
 <script>
+
 export default {
   data() {
     return {
@@ -107,7 +111,6 @@ export default {
       name: '',
       email: '',
       vCardData: null
-
     };
   },
   mounted() {
@@ -115,7 +118,6 @@ export default {
       this.currentUrl = window.location.href;
     }
   },
-
 
   methods: {
     generateVCard(event) {
@@ -147,6 +149,12 @@ END:VCARD`;
 </script>
 
 
-<style >
-body{ @apply bg-gray-100 }
+<style>
+body {
+  @apply bg-gray-100
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-reMain
+}
 </style>

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const colors = require('tailwindcss/colors')
+//const colors = require('tailwindcss/colors')
 
 export default {
   darkMode: 'class',
@@ -17,8 +17,6 @@ export default {
       fontFamily: {
         'sans': ['"Outfit"', 'serif'],
       },
-
-      
     colors: {
       'reMain': '#4AAB3D',
     },
