@@ -1,29 +1,16 @@
 <template>
 
-
     <div class="fixed bottom-0  right-0 me-3 mb-3">  
-    <UButton @click="shareURL"  data-value="wartosc" :data-company="data[0].acf.spolka" icon="i-heroicons-share" :ui="{ rounded: 'rounded-full' }" size="xl"   class="bg-reMain"  variant="solid"  />
+    <UButton @click="shareURL" :data-company="data[0].acf.spolka" icon="i-heroicons-share" :ui="{ rounded: 'rounded-full' }" size="xl"   class="bg-reMain"  variant="solid"  />
     </div>
 </template>
 
 <script setup>
-const { data } = defineProps(['data'])
+const { data } = defineProps(['data']);
 </script>
 
-
-
 <script>
-
 export default {
-
-name: 'copyToClipboard',
-  data() {
-    return {
-    };
-  },
-  mounted() {
-
-  },
     methods: {
      async shareURL(event) { 
 

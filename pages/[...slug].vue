@@ -1,10 +1,14 @@
 <template>
 
+<Head>
+      <Title>{{ data[0].title.rendered }}</Title>
+      <Meta name="description" :content="data[0].acf.stanowisko" />
+</Head>
 
   <div class="min-h-screen mb-12 items-start flex">
 
     <div class="container  mx-auto">
-
+ 
 
       <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :space-between="50"
         :slides-per-view="1" :loop="false" :autoplay="{ delay: 8000, disableOnInteraction: true, }"
@@ -72,7 +76,6 @@
 </script>
 
 <script setup>
-import CryptoJS from 'crypto-js';
 const route = useRoute()
 const slug = ref('')
 
@@ -139,6 +142,7 @@ END:VCARD`;
 
 
 }
+
 </script>
 
 
