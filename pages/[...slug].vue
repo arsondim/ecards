@@ -61,7 +61,7 @@
 
   </div>
 
- <!-- <BottomNav :data="data" /> -->
+  <BottomNav :data="data" />
 
 </template>
 
