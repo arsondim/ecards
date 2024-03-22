@@ -1,6 +1,16 @@
 <template>
-  <div>
-    
-  </div>
   <NuxtPage />
 </template>
+ 
+
+<script>
+definePageMeta({
+  colorMode: 'light',
+})
+</script>
+
+<style>
+body {
+  @apply bg-gray-100
+}
+</style>

@@ -8,7 +8,6 @@ export default defineNuxtConfig({
    },
 
   modules: [
-
     "@nuxt/ui",
     "nuxt-feather-icons",
     "@nuxtjs/tailwindcss",
@@ -17,8 +16,8 @@ export default defineNuxtConfig({
   ],
 
   colorMode: {
-    classSuffix: '',
-    preference: 'light', 
+    preference: 'light', // default value of $colorMode.preference
+    fallback: 'light', // fallback value if not system preference found
   },
 
 

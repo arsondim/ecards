@@ -1,7 +1,7 @@
 <template>
 
 
-  <div class="min-h-screen items-center flex">
+  <div class="min-h-screen items-start flex">
 
     <div class="container  mx-auto">
 
@@ -9,29 +9,24 @@
       <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :space-between="50"
         :slides-per-view="1" :loop="false" :autoplay="{ delay: 8000, disableOnInteraction: true, }"
         :pagination="{ el: '.custom-pagination', enabled: true, clickable: true }">
+
         <SwiperSlide>
           <CardFront :data="data" />
         </SwiperSlide>
 
         <SwiperSlide>
-
-          <div class="card bg-white  border-b-4 border-reMain p-8 shadow-lg rounded-lg">
-            ok
-          </div>
+          <CardBack :data="data" />
         </SwiperSlide>
 
       </Swiper>
 
-
       <div class="text-center custom-pagination"></div>
-
 
 
       <div class="mx-3">
 
-
-        <a @click="generateVCard" :data-value="data[0].title.rendered" :data-email="data[0].acf.email"
-          :data-title="data[0].acf.stanowisko" :data-phone="data[0].acf.telefon" v-if="!vCardData"
+        <a @click="generateVCard" :data-name="data[0].acf.imie" :data-surname="data[0].acf.nazwisko" :data-email="data[0].acf.email"
+          :data-title="data[0].acf.stanowisko" :data-phone="data[0].acf.telefon" :data-company="data[0].acf.spolka" v-if="!vCardData"
           class="btn bg-reMain opacity-60 text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">Wygeneruj
           vCard</a>
 
@@ -53,9 +48,7 @@
           <p class="hidden text-xs text-gray-600 dark:text-gray-50 opacity-50 pt-3"> {{ currentUrl }}</p>
 
 
-          <CopyLink :data="currentUrl" />
-
-
+          <CopyLink/>
 
         </div>
 
@@ -68,7 +61,7 @@
 
   </div>
 
-  <BottomNav :data="data" />
+ <!-- <BottomNav :data="data" /> -->
 
 </template>
 
@@ -122,21 +115,21 @@ export default {
   methods: {
     generateVCard(event) {
 
-      const dataValue = event.target.dataset.value;
+      const dataName = event.target.dataset.name;
+      const dataSurname = event.target.dataset.surname;
       const dataEmail = event.target.dataset.email;
       const dataPhone = event.target.dataset.phone;
       const dataTitle = event.target.dataset.title;
-
+      const dataCompany = event.target.dataset.company;
+   
       const vCardContent = `BEGIN:VCARD
 VERSION:3.0
-FN:${dataValue}
-N:${dataValue};;;
+FN:${dataName} ${dataSurname} 
+N:${dataSurname};${dataName};;
 EMAIL;type=WORK,INTERNET:${dataEmail}
 TEL;TYPE=WORK,VOICE:${dataPhone}
-LABEL;TYPE=WORK:Work Address
-ADR;TYPE=WORK:;;Rydygiera 8;Warszawa; 
 TITLE:${dataTitle}
-ORG:Respect Energy
+ORG:${dataCompany}
 REV:2024-02-27T11:50:37.929Z
 END:VCARD`;
       const blob = new Blob([vCardContent], { type: 'text/vcard' });
@@ -150,9 +143,6 @@ END:VCARD`;
 
 
 <style>
-body {
-  @apply bg-gray-100
-}
 
 .swiper-pagination-bullet-active {
   @apply bg-reMain

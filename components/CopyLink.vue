@@ -1,7 +1,9 @@
 <template>
 
+{{currentUrl}}
+
     <div class="flex gap-4 justify-between">
-        <button class="text-xs text-gray-600 dark:text-gray-50 opacity-50 pt-3" :data-copy="data" @click="copyToClipboard"><UIcon name="i-heroicons-document-duplicate" /><span> Skopiuj URL</span></button>
+        <button class="text-xs text-gray-600 dark:text-gray-50 opacity-50 pt-3" @click="copyToClipboard"><UIcon name="i-heroicons-document-duplicate" /><span> Skopiuj URL</span></button>
         <NuxtLink class="text-xs text-gray-600 dark:text-gray-50 opacity-50 pt-3" :to="`https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=${data}`" target="_blank" rel="noopener"><UIcon name="i-heroicons-arrow-down-tray-16-solid" /><span> Pobierz QR</span></NuxtLink>
     </div>
 
@@ -19,15 +21,18 @@ export default {
 name: 'copyToClipboard',
   data() {
     return {
-        textCopy: 'Text to be copied',
+     currentUrl: '',
     };
   },
+  mounted() {
 
+  },
     methods: {
-        copyToClipboard(event) {
-            const textCopy = event.target.dataset.copy;
+        copyToClipboard() {
+
+            const textCopy = window.location.href;
             navigator.clipboard.writeText(textCopy)
-            console.log('Schowek:' + textCopy);
+            console.log(textCopy);
         },
     },
 

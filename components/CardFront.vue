@@ -1,7 +1,7 @@
 <template>
 
 
-  <div class="card bg-white mx-3 mt-3 mb-4 border-b-4 border-reMain p-8 shadow-md rounded-lg">
+  <div class="card min-h-[230px] flex flex-col justify-center row bg-white mx-3 mt-3 mb-4 border-b-4 border-reMain p-8 shadow-md rounded-lg">
 
     <div class="header flex justify-between ">
       <img v-if="data[0].acf.zdjecie.length" class="inline-block w-14 h-14  rounded-full ring-2 ring-white" :src="`${data[0].acf.zdjecie}`" alt="" />
@@ -9,7 +9,7 @@
 
     </div>
 
-    <h3 class="text-lg pt-2 font-bold">{{ data[0].title.rendered }}</h3>
+    <h3 class="text-lg pt-2 font-bold">{{ data[0].acf.imie }} {{ data[0].acf.nazwisko }} </h3>
     <h4 class="text-reMain text-sm">{{ data[0].acf.stanowisko }}</h4>
     <div class="data text-sm pt-3">
       <div v-if="data[0].acf.email.length" class="mail flex items-center">
