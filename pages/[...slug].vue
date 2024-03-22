@@ -1,7 +1,7 @@
 <template>
 
 
-  <div class="min-h-screen items-start flex">
+  <div class="min-h-screen mb-12 items-start flex">
 
     <div class="container  mx-auto">
 

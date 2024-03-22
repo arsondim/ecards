@@ -1,16 +1,16 @@
 <template>
 
 
-  <div class="card min-h-[230px] flex flex-col justify-center row bg-white mx-3 mt-3 mb-4 border-b-4 border-reMain p-8 shadow-md rounded-lg">
+  <div class="card min-h-[250px] flex flex-col justify-center row bg-white mx-3 mt-3 mb-4 border-b-4 border-reMain p-8 shadow-md rounded-lg">
 
     <div class="header flex justify-between ">
-      <img v-if="data[0].acf.zdjecie.length" class="inline-block w-14 h-14  rounded-full ring-2 ring-white" :src="`${data[0].acf.zdjecie}`" alt="" />
+      <img v-if="data[0].acf.zdjecie.length" class="inline-block w-12 h-12  rounded-full ring-2 ring-white" :src="`${data[0].acf.zdjecie}`" alt="" />
       <img class="logo w-28 ms-auto text-end" src="~/assets/logo.svg" />
 
     </div>
 
-    <h3 class="text-lg pt-2 font-bold">{{ data[0].acf.imie }} {{ data[0].acf.nazwisko }} </h3>
-    <h4 class="text-reMain text-sm">{{ data[0].acf.stanowisko }}</h4>
+    <h3 class="text-lg/[22px] pt-2 font-bold">{{ data[0].acf.imie }} {{ data[0].acf.nazwisko }} </h3>
+    <h4 class="text-reMain text-sm/[15px]">{{ data[0].acf.stanowisko }}</h4>
     <div class="data text-sm pt-3">
       <div v-if="data[0].acf.email.length" class="mail flex items-center">
         <MailIcon class=" opacity-50 " size="1x"></MailIcon> <a :href="'mailto:' + data[0].acf.email" class="ps-2"> {{

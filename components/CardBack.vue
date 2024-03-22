@@ -1,7 +1,7 @@
 <template>
 
 
-<div class="card min-h-[230px] flex flex-col justify-center row bg-white mx-3 mt-3 mb-4 border-b-4 border-reMain px-8 py-6 shadow-md rounded-lg">
+<div class="card min-h-[250px] flex flex-col justify-center row bg-white mx-3 mt-3 mb-4 border-b-4 border-reMain px-8 py-6 shadow-md rounded-lg">
 
 
 
