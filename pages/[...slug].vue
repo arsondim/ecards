@@ -35,8 +35,6 @@
           vCard</a>
 
         <a v-if="vCardData" :href="vCardData" download="contact.vcf" class="btn bg-reMain text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">  Pobierz vCard </a>
-
-
       </div>
 
       <div class="qr p-6 text-center">
@@ -125,7 +123,8 @@ export default {
       const dataPhone = event.target.dataset.phone;
       const dataTitle = event.target.dataset.title;
       const dataCompany = event.target.dataset.company;
-   
+  
+
       const vCardContent = `BEGIN:VCARD
 VERSION:3.0
 FN:${dataName} ${dataSurname} 
