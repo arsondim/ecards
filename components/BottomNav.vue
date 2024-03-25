@@ -1,5 +1,5 @@
 <template>
-    <a :class="{ '!bg-reFuel': data[0].acf.spolka_code === 'REF'},{ '!bg-rePower': data[0].acf.spolka_code === 'REP'}" :title="data[0].acf.spolka" @click="shareURL" :data-company="data[0].acf.spolka"  class="fixed bottom-0  right-0 me-3 mb-3 shadow-md  bg-reMain rounded-full p-4 flex" > <UIcon class="h-9 w-9 text-white" name="i-heroicons-share"/> </a>
+    <a :title="data[0].acf.spolka" @click="shareURL" :data-company="data[0].acf.spolka"  class="fixed bottom-0  right-0 me-3 mb-3 shadow-md  bg-reMain rounded-full p-4 flex" > <UIcon class="h-9 w-9 text-white" name="i-heroicons-share"/> </a>
 </template>
 
 <script setup>

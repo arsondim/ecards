@@ -5,7 +5,7 @@
       <Meta name="description" :content="data[0].acf.stanowisko" />
 </Head>
 
-  <div class="min-h-screen mb-16 items-start flex">
+  <div :class="{ 'reFuel': data[0].acf.spolka_code === 'REF',  'rePower': data[0].acf.spolka_code === 'REP', 'reSolarwind': data[0].acf.spolka_code === 'RESW', 'reStorage': data[0].acf.spolka_code === 'RES',}" class="min-h-screen mb-16 items-start flex">
 
     <div class="container  mx-auto">
  
@@ -26,11 +26,11 @@
 
       <div class="mx-3">
 
-        <a :class="{ '!bg-reFuel': data[0].acf.spolka_code === 'REF'},{ '!bg-rePower': data[0].acf.spolka_code === 'REP'}" @click="generateVCard" :data-name="data[0].acf.imie" :data-surname="data[0].acf.nazwisko" :data-email="data[0].acf.email"
+        <a  @click="generateVCard" :data-name="data[0].acf.imie" :data-surname="data[0].acf.nazwisko" :data-email="data[0].acf.email"
           :data-title="data[0].acf.stanowisko" :data-phone="data[0].acf.telefon" :data-company="data[0].acf.spolka" v-if="!vCardData"
           class="btn bg-reMain opacity-60 text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">Wygeneruj vCard</a>
 
-        <a v-if="vCardData" :href="vCardData" download="contact.vcf" :class="{ '!bg-reFuel': data[0].acf.spolka_code === 'REF'},{ '!bg-rePower': data[0].acf.spolka_code === 'REP'}" class="btn bg-reMain text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">  Pobierz vCard </a>
+        <a v-if="vCardData" :href="vCardData" download="contact.vcf" class="btn bg-reMain text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">  Pobierz vCard </a>
       </div>
 
       <div class="qr p-6 text-center">
@@ -136,18 +136,42 @@ END:VCARD`;
 
 <style>
 
+
+.reFuel{
+  .text-reMain{
+    @apply text-reFuel
+  }
+  .bg-reMain{
+    @apply bg-reFuel
+  } 
+  .border-reMain{
+    @apply border-reFuel
+  } 
+  .swiper-pagination-bullet-active{
+    @apply bg-reFuel
+  }
+}
+
+
+.rePower, .reSolarwind, .reStorage{
+  .text-reMain{
+    @apply text-rePower
+  }
+  .bg-reMain{
+    @apply bg-rePower
+  } 
+  .border-reMain{
+    @apply border-rePower
+  } 
+  .swiper-pagination-bullet-active{
+    @apply bg-rePower
+  }
+}
+
+
 .swiper-pagination-bullet-active {
   @apply bg-reMain
 }
-
-.reFuel .swiper-pagination-bullet-active{
-  @apply bg-reFuel
-}
-
-.rePower .swiper-pagination-bullet-active{
-  @apply bg-rePower
-}
-
 
 
 </style>
