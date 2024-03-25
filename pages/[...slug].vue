@@ -5,7 +5,7 @@
       <Meta name="description" :content="data[0].acf.stanowisko" />
 </Head>
 
-  <div class="min-h-screen mb-12 items-start flex">
+  <div class="min-h-screen mb-16 items-start flex">
 
     <div class="container  mx-auto">
  
@@ -62,10 +62,11 @@
 
     </div>
 
+    <BottomNav :data="data" />
 
   </div>
 
-  <BottomNav :data="data" />
+
 
 </template>
 
