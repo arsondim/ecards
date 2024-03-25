@@ -11,7 +11,6 @@
 <script setup>
 const { data } = defineProps(['data'])
 
-
 </script>
 
 <script>
@@ -36,7 +35,6 @@ name: 'copyToClipboard',
             console.log(textCopy);
         },
     },
-
 
 };
 </script>

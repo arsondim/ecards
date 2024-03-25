@@ -9,10 +9,8 @@
 
     <div class="container  mx-auto">
  
-
       <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :space-between="50"
-        :slides-per-view="1" :loop="false" :autoplay="false"
-        :pagination="{ el: '.custom-pagination', enabled: true, clickable: true }">
+        :slides-per-view="1" :loop="false" :autoplay="false" :pagination="{ el: '.custom-pagination', enabled: true, clickable: true }">
 
         <SwiperSlide>
           <CardFront :data="data" />
@@ -24,29 +22,22 @@
 
       </Swiper>
 
-      <div class="text-center custom-pagination"></div>
-
+      <div :class="{ 'reFuel': data[0].acf.spolka_code === 'REF'},{ 'rePower': data[0].acf.spolka_code === 'REP'}"  class="text-center custom-pagination"></div>
 
       <div class="mx-3">
 
-        <a @click="generateVCard" :data-name="data[0].acf.imie" :data-surname="data[0].acf.nazwisko" :data-email="data[0].acf.email"
+        <a :class="{ '!bg-reFuel': data[0].acf.spolka_code === 'REF'},{ '!bg-rePower': data[0].acf.spolka_code === 'REP'}" @click="generateVCard" :data-name="data[0].acf.imie" :data-surname="data[0].acf.nazwisko" :data-email="data[0].acf.email"
           :data-title="data[0].acf.stanowisko" :data-phone="data[0].acf.telefon" :data-company="data[0].acf.spolka" v-if="!vCardData"
-          class="btn bg-reMain opacity-60 text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">Wygeneruj
-          vCard</a>
+          class="btn bg-reMain opacity-60 text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">Wygeneruj vCard</a>
 
-        <a v-if="vCardData" :href="vCardData" download="contact.vcf" class="btn bg-reMain text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">  Pobierz vCard </a>
+        <a v-if="vCardData" :href="vCardData" download="contact.vcf" :class="{ '!bg-reFuel': data[0].acf.spolka_code === 'REF'},{ '!bg-rePower': data[0].acf.spolka_code === 'REP'}" class="btn bg-reMain text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">  Pobierz vCard </a>
       </div>
 
       <div class="qr p-6 text-center">
 
-        <h4 class="text-gray-600 dark:text-gray-50">
-
-        </h4>
-
-        <div class="text-center pt-2 px-6">
-          <img class="m-auto border rounded-md border-reMain"
+            <div class="text-center pt-2 px-6">
+          <img class="m-auto border rounded-md shadow-lg"
             :src="`https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=${currentUrl}`" alt="">
-
           <p class="hidden text-xs text-gray-600 dark:text-gray-50 opacity-50 pt-3"> {{ currentUrl }}</p>
 
 
@@ -56,14 +47,11 @@
 
       </div>
 
-
-
     </div>
 
     <BottomNav :data="data" />
 
   </div>
-
 
 
 </template>
@@ -151,4 +139,15 @@ END:VCARD`;
 .swiper-pagination-bullet-active {
   @apply bg-reMain
 }
+
+.reFuel .swiper-pagination-bullet-active{
+  @apply bg-reFuel
+}
+
+.rePower .swiper-pagination-bullet-active{
+  @apply bg-rePower
+}
+
+
+
 </style>

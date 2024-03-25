@@ -1,12 +1,12 @@
 <template>
 
 
-<div class="card min-h-[250px] flex flex-col justify-center row bg-white mx-3 mt-3 mb-4 border-b-4 border-reMain px-8 py-6 shadow-md rounded-lg">
+<div :class="{ '!border-reFuel': data[0].acf.spolka_code === 'REF'},{ '!border-rePower': data[0].acf.spolka_code === 'REP'}" class="card min-h-[230px] flex flex-col justify-center row bg-white mx-3 mt-3 mb-4 border-b-4 border-reMain px-8 py-6 shadow-md rounded-lg">
 
 
 
 
-    <h3 class="text-reMain text-md pt-0 font-bold">{{ data[0].acf.spolka }}</h3>
+    <h3 :class="{ '!text-reFuel': data[0].acf.spolka_code === 'REF', '!text-rePower': data[0].acf.spolka_code === 'REP'}" class="text-reMain text-md pt-0 font-bold">{{ data[0].acf.spolka }}</h3>
     <div class="data text-sm/[16px] text-sm pt-3">
 
       <div v-if="data[0].acf.adres_siedziby.length">

@@ -19,6 +19,8 @@ export default {
       },
     colors: {
       'reMain': '#4AAB3D',
+      'reFuel': '#4377BC',
+      'rePower':'#3f987c'
     },
 
     },
