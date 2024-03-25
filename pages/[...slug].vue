@@ -11,7 +11,7 @@
  
 
       <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :space-between="50"
-        :slides-per-view="1" :loop="false" :autoplay="{ delay: 8000, disableOnInteraction: true, }"
+        :slides-per-view="1" :loop="false" :autoplay="false"
         :pagination="{ el: '.custom-pagination', enabled: true, clickable: true }">
 
         <SwiperSlide>
