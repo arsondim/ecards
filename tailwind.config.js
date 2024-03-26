@@ -18,7 +18,8 @@ export default {
         'sans': ['"Outfit"', 'serif'],
       },
     colors: {
-      'reMain': '#4AAB3D',
+      //'reMain': '#4AAB3D',
+      'reMain': '#3f987c',
       'reFuel': '#4377BC',
       'rePower':'#3f987c'
     },
