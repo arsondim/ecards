@@ -1,5 +1,6 @@
 <template>
 
+
 <Head>
       <Title>{{ data[0].title.rendered }}</Title>
       <Meta name="description" :content="data[0].acf.stanowisko" />
@@ -78,11 +79,19 @@ if (route.params.slug) {
   slug.value = 'home'
 }
 
-const { data: data, pending, error, refresh } = await useFetch('https://ecards.renergy.webd.pro/wp-json/wp/v2/posts/?acf_format=standard', {
+const { data: data, pending, error, refresh } = await useFetch('https://card.renergy.webd.pro/api/wp-json/wp/v2/posts/?acf_format=standard', {
   query: {
     hash: slug.value,
-  }
+  },
+  headers: {
+        "Authorization": "Basic YWRtaW46NUNvT0hTRkBLNHBNMkxrNG5s"
+      },
 })
+
+
+
+
+
 </script>
 
 <script>

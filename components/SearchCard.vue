@@ -54,7 +54,7 @@ export default {
   methods: {
       async submitForm() {
           try {
-              const { data: data, pending, error, refresh } = await useFetch('https://ecards.renergy.webd.pro/wp-json/wp/v2/posts/?acf_format=standard', {
+              const { data: data, pending, error, refresh } = await useFetch('https://card.renergy.webd.pro/api/wp-json/wp/v2/posts/?acf_format=standard', {
                   query: {
                       email: this.inputValue,
                   }
