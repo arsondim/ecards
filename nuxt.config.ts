@@ -8,8 +8,12 @@ export default defineNuxtConfig({
       pageTransition: { name: 'page', mode: 'out-in' },
 
       head: {
+        meta: [
+          { hid: 'robots', name: 'robots', content: 'noindex' }
+        ],
         title: 'Card Respect Energy Group',
         charset: 'utf-8',
+
         viewport: 'width=device-width, initial-scale=1',
       }
     },
