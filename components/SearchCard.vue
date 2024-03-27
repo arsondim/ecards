@@ -8,7 +8,7 @@
 
                 <form @submit.prevent="submitForm">
 
-                    <p class="opacity-50 pb-2">Aby znaleźć swoją wizytówkę należy wpisać swój adres mailowy</p>
+                    <p class="opacity-50 pb-2">Wpisz swój adres e-mail, aby wyświetlić dostępne e-wizytówki</p>
 
 
                     <input type="email" id="inputField" v-model="inputValue" placeholder="Wpisz adres e-mail" required
@@ -21,7 +21,7 @@
                         <UIcon class="ms-1" name="i-heroicons-magnifying-glass-solid" />
                     </button>
 
-
+ 
                 </form>
 
 
