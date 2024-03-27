@@ -1,16 +1,22 @@
 <template>
-  <div class="max-w-[520px] mx-auto">
+  <div class="max-w-[520px]  mx-auto">
       <div class=" pt-3 flex px-4">
           <div class="container  p-2  mx-auto">
-              <div> <img class="logo w-50 mb-4" src="~/assets/logo.svg" />
+              <div> <img class="logo pt-2 w-50 mb-4" src="~/assets/logo.svg" />
               </div>
 
 
               <form @submit.prevent="submitForm">
-                  <input type="email" id="inputField" v-model="inputValue" placeholder="Wpisz @ email" required
-                      class="block w-full rounded-md border-0 p-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-reMain sm:text-sm sm:leading-6" />
-                  <button class="btn bg-reMain text-white p-2  w-full rounded-lg text-center mt-3"
-                      type="submit">Wyszukaj</button>
+
+                <p class="opacity-50 pb-2">Aby znaleźć swoją wizytówkę należy wpisać swój adres mailowy</p>
+
+
+                  <input type="email" id="inputField" v-model="inputValue" placeholder="Wpisz adres e-mail" required
+                      class="block w-full rounded-md border-0 p-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-reMain sm:text-md sm:leading-6" />
+                 
+                 
+                      <button class="btn bg-reMain text-lg text-white p-2 flex items-center justify-center w-full rounded-lg text-center mt-3"
+                      type="submit">Wyszukaj  <UIcon class="ms-1" name="i-heroicons-magnifying-glass-solid" /> </button>
 
 
               </form>
@@ -34,7 +40,7 @@
 
               <div v-if="empty">
 
-                  <p class="text-center py-3 text-yellow-500"> Nie zaleziono 😔 </p>
+                  <p class="text-center py-3 text-yellow-500"> Nie znaleziono 😔 </p>
 
               </div>
 
