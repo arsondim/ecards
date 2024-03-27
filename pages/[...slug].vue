@@ -6,7 +6,7 @@
       <Meta name="description" :content="data[0].acf.stanowisko" />
 </Head>
 
-  <div :class="{ 'reFuel': data[0].acf.spolka_code === 'REF',  'rePower': data[0].acf.spolka_code === 'REP', 'reSolarwind': data[0].acf.spolka_code === 'RESW', 'reStorage': data[0].acf.spolka_code === 'RES',}" class="min-h-screen mb-16 items-start flex">
+  <div :class="{ 'reFuel': data[0].acf.spolka_code === 'REF',  'rePower': data[0].acf.spolka_code === 'REP', 'reSolarwind': data[0].acf.spolka_code === 'RESW', 'reStorage': data[0].acf.spolka_code === 'RES',}" class="max-w-[520px] mx-auto min-h-screen mb-16 lg:mb-0 md:items-start lg:items-center flex">
 
     <div class="container  mx-auto">
  
@@ -27,18 +27,16 @@
 
       <div class="mx-3">
 
-        <a  @click="generateVCard" :data-name="data[0].acf.imie" :data-surname="data[0].acf.nazwisko" :data-email="data[0].acf.email"
+        <a @click="generateVCard" :data-name="data[0].acf.imie" :data-surname="data[0].acf.nazwisko" :data-email="data[0].acf.email"
           :data-title="data[0].acf.stanowisko" :data-phone="data[0].acf.telefon" :data-company="data[0].acf.spolka" v-if="!vCardData"
           class="btn bg-reMain opacity-60 text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">Wygeneruj vCard</a>
-
         <a v-if="vCardData" :href="vCardData" download="contact.vcf" class="btn bg-reMain text-white p-2 m-auto block w-auto rounded-lg text-center mt-3">  Pobierz vCard </a>
       </div>
 
-      <div class="qr p-6 text-center">
+      <div class="qr max-w-[350px] m-auto py-6 px-2 text-center">
 
-            <div class="text-center pt-2 px-6">
-          <img class="m-auto border rounded-md shadow-lg"
-            :src="`https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=${currentUrl}`" alt="">
+            <div class="text-center pt-2 px-1">
+          <img class="m-auto border rounded-md shadow-lg" :src="`https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=${currentUrl}`" alt="">
           <p class="hidden text-xs text-gray-600 dark:text-gray-50 opacity-50 pt-3"> {{ currentUrl }}</p>
 
 

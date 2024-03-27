@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="max-w-[520px] mx-auto">
       <div class=" pt-3 flex px-4">
           <div class="container  p-2  mx-auto">
               <div> <img class="logo w-50 mb-4" src="~/assets/logo.svg" />
