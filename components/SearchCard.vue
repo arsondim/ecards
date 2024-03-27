@@ -49,10 +49,9 @@
                     <p class="text-center py-3 text-yellow-500"> Nie znaleziono 😔 </p>
 
                     <p class="text-center text-sm text-gray-600">Jeśli ktoś z Państwa, nie zamawiał wcześniej wizytówek,
-                        ale potrzebuje wersji elektronicznej, proszę o wypełnienie
-                        <NuxtLink external class="underline text-gray-900" target="_blank"
+                        ale potrzebuje wersji elektronicznej, proszę o wypełnienie <NuxtLink external class="underline text-gray-900" target="_blank"
                             to="https://respectenergy-my.sharepoint.com/personal/monika_matejczyk_respect_energy/_layouts/15/guestaccess.aspx?share=EVCOCmo2H_RAhPAtLWYzOjAB7lgOXDsaMEI3sJ6FzjrIMw">
-                            formularza</NuxtLink>, wpisując kolumnie "Uwagi/Komentarze" wartość "vCard".
+                            formularza</NuxtLink>, wpisując w kolumnie "Uwagi/Komentarze" wartość "vCard".
                     </p>
 
 
